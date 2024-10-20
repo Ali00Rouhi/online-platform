@@ -85,8 +85,10 @@ ol {
 }
 
 #header .user {
-  float: right;
-  padding-top: 4px;
+  display: flex;
+  /* padding-top: 4px; */
+  align-items: center;
+  justify-content: flex-end;
 }
 
 #content {
@@ -327,4 +329,9 @@ img.user-detail {
 .action .date {
   font-style: italic;
   color: #ccc;
+}
+.logout-btn {
+  background: transparent;
+  display: inline;
+  border: none;
 }
