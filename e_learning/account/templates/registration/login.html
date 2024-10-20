@@ -1,0 +1,25 @@
+<!-- prettier-ignore -->
+{% extends "base.html" %} 
+{% block title %} Log-in {% endblock title %}
+{% block content %}
+<h1>Log-in</h1>
+{% if form.errors %}
+<p class="">Your username or password is not correct. Please try again</p>
+{% else %}
+<p class="">Please, use the following form to log-in:</p>
+<br>
+<p>If you don't have an account <a href="{% url 'register' %}">register here</a></p>
+{% endif %}
+<div class="login-form">
+  <form action="{% url "login" %}" method="POST">
+    {{ form.as_p }} {% csrf_token %}
+    <input type="hidden" name="next" value="{{ next }}" />
+    <p class=""><input type="submit" value="login" /></p>
+  </form>
+  <p>
+    <a href="{% url 'password_reset' %}">
+        Forgotten your password?
+    </a>
+  </p>
+</div>
+{% endblock content %}
